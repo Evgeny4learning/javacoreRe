@@ -2,7 +2,7 @@ package zz.something.ClassesHW;
 
 public class Car1 {
 public static void main(String[] args) {
-        Car1 car = new Car1();
+        Car2 car = new Car2();
         car.setModel("Toyota");
         car.setYear(4);
         System.out.println("Model: " + car.getModel());
@@ -10,7 +10,7 @@ public static void main(String[] args) {
         }
         }
 
-        class Car1 {
+class Car2 {
 private String model;
 private int year;
 
