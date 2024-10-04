@@ -55,7 +55,7 @@ public class Day4 {
 
         int[] array2 = new int[100];
         int maxElem = 0;
-        int minElem = 1;
+        int minElem = 0;
         int numberEleWithEndZero = 0;
         int sumEleWithEndZero = 0;
 
@@ -63,14 +63,108 @@ public class Day4 {
             array2[i] = (int) (Math.random() * 10000);
         }
 
+        minElem = array2[0];
         for (int ele:
-             array2) {
+                array2) {
             if (ele > maxElem) maxElem = ele;
             if (ele < minElem) minElem = ele;
+            if (ele % 10 == 0) {
+                numberEleWithEndZero++;
+                sumEleWithEndZero = sumEleWithEndZero + ele;
+            }
         }
+
         System.out.println(Arrays.toString(array2));
-        System.out.println("lenght " + array2.length);
-        System.out.println("Max Element " + maxElem);
-        System.out.println("Min Element " + minElem);
+        System.out.println("lenght: " + array2.length);
+        System.out.println("Max ele: " + maxElem);
+        System.out.println("Min ele: " + minElem);
+        System.out.println("Number of element with zero end: " + numberEleWithEndZero);
+        System.out.println("Sum of element with zero end: " + sumEleWithEndZero);
+
+        System.out.println();
+        System.out.println("task 4_3");
+
+        int k = 12;
+        int l = 8;
+        int[][] array3 = new int[k][l];
+        int[][] array4test = {
+                {1, 2, 3},
+                {1, 2, 3},
+                {1, 2, 3}
+        };
+        // насколько важно объявлять переменные сверху или лучше
+        // рядом с местом, где будет использоваться
+        //int[] sumOfRow = new int[array3.length];
+        int sumOfRow = 0;
+        int maxSumOfRow = 0;
+        int indexOfsumOfRow = 0;
+        int indx = 0;
+
+        for (k = 0; k < array3.length; k++) {
+            for (l = 0; l < array3[k].length; l++) {
+                array3[k][l] = (int) (Math.random() * 50);
+            }
+        }
+
+//        for (int[] row : array3) {
+//            for (int ele : row) {
+//                sumOfRow = sumOfRow + ele;
+//                System.out.printf("%4d", ele);
+//            }
+//            System.out.print("  -  sum " + sumOfRow + " indx " + indx++);
+//            if (sumOfRow >= maxSumOfRow) {
+//                indexOfsumOfRow =  row;
+//                maxSumOfRow = sumOfRow;
+//            }
+//
+//            sumOfRow = 0;
+//            System.out.println();
+//        }
+
+        for (int i = 0; i < array3.length; i++) {
+            for (int j = 0; j < array3[i].length; j++) {
+                sumOfRow = sumOfRow + array3[i][j];
+                System.out.printf("%4d", array3[i][j]);
+            }
+            if (sumOfRow >= maxSumOfRow) {
+                maxSumOfRow = sumOfRow;
+                indexOfsumOfRow = i;
+            }
+
+            System.out.print("  -  sum " + sumOfRow + " indx " + indx++);
+            sumOfRow = 0;
+            System.out.println();
+        }
+        System.out.println("index of row with max sum of elements: " + indexOfsumOfRow);
+//        System.out.println(Arrays.deepToString(array3));
+
+        System.out.println();
+        System.out.println("task 4_4");
+
+        int m = 100;
+        int[] array5 = new int[m];
+
+        for (int i = 0; i < array5.length; i++) {
+            array5[i] = (int) (Math.random() * 10000);
+        }
+
+        System.out.println(Arrays.toString(array5));
+
+        int summ3closest;
+        int maxSum3Clos = 0;
+        int indexMax3 = 0;
+        for (int i = 1; i < array5.length-1; i++) {
+            summ3closest = array5[i-1] + array5[i] + array5[i+1];
+            if (summ3closest >= maxSum3Clos) {
+                maxSum3Clos = summ3closest;
+                indexMax3 = i-1;
+            }
+//            System.out.println("max " + maxSum3Clos + "     sumclos " + summ3closest );
+        }
+        System.out.println();
+        System.out.println("Max sum - " + maxSum3Clos);
+        System.out.println("Index of first if max 3 numbers - " + indexMax3);
     }
+
 }
+
