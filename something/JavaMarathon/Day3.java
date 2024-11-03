@@ -37,7 +37,7 @@ public class Day3 {
                         System.out.println(cityName + " - это Германия");
                         break;
                     case "Курган":
-                        System.out.println(cityName + " - филиал АДА !!!");
+                        System.out.println(cityName + " - опааа");
                         break;
                     default:
                         System.out.println("Неизвестная страна");

@@ -64,8 +64,7 @@ public class Day4 {
         }
 
         minElem = array2[0];
-        for (int ele:
-                array2) {
+        for (int ele: array2) {
             if (ele > maxElem) maxElem = ele;
             if (ele < minElem) minElem = ele;
             if (ele % 10 == 0) {
